@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         simpsonsListView.setOnItemClickListener { listview, listitem, index, id ->
             println("item: $listitem, index: $index, id: $id")
             val textview = listitem as TextView
-            Toast.makeText(this, "Seleccionaste a ${textview.text}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Seleccionaste  ${textview.text}", Toast.LENGTH_SHORT).show()
         }
 
         val miBoton = findViewById<Button>(R.id.btnAgregar)
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun agregarPersonaje() {
-        simpsonNames.add("Otro personaje")
+        simpsonNames.add("New item")
         adapter?.notifyDataSetChanged()
     }
 
