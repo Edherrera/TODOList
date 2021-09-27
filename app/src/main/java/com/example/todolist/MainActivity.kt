@@ -6,7 +6,7 @@ import android.widget.*
 
 class MainActivity : AppCompatActivity() {
 
-    val simpsonNames = arrayListOf<String>("Task 1") // 1. crear arreglo de datos
+    val taskNames = arrayListOf<String>("Task 1") // 1. crear arreglo de datos
     var adapter: ArrayAdapter<String>?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, simpsonNames) // 2. crear un adapter usando el arreglo de datos
+        adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, taskNames) // 2. crear un adapter usando el arreglo de datos
         val TaskListView = findViewById<ListView>(R.id.taskList)
         TaskListView.adapter = adapter // 3. conectar el adapter con el listview
         TaskListView.setOnItemClickListener { listview, listitem, index, id ->
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         val miBoton2 = findViewById<Button>(R.id.deletebut)
         miBoton2.setOnClickListener {
-            quitarPersonaje()
+            quitarTask()
         }
 
     }
@@ -44,13 +44,13 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Campo Vacio... ingrese una task!!", Toast.LENGTH_SHORT).show()
         }
 
-        simpsonNames.add(nombre)
+        taskNames.add(nombre)
         adapter?.notifyDataSetChanged()
 
     }
 
-    fun quitarPersonaje() {
-        simpsonNames.removeAt(simpsonNames.size-1)
+    fun quitarTask() {
+        taskNames.removeAt(taskNames.size-1)
         adapter?.notifyDataSetChanged()
     }
 
